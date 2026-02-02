@@ -1,0 +1,19 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkdwieupyo4wi"]
+
+[ext_resource type="Script" path="res://scenes/ui/sond_button.gd" id="1_q4d88"]
+[ext_resource type="PackedScene" uid="uid://bioq48yyuab14" path="res://scenes/component/random_strem_player_component.tscn" id="2_82oy4"]
+[ext_resource type="AudioStream" uid="uid://dmel2tnvghakd" path="res://assets/audio/click1.ogg" id="3_pp0j1"]
+[ext_resource type="AudioStream" uid="uid://b1guud7n80qne" path="res://assets/audio/click2.ogg" id="4_1txll"]
+[ext_resource type="AudioStream" uid="uid://b33j0etpgoolu" path="res://assets/audio/click3.ogg" id="5_ou6f5"]
+[ext_resource type="AudioStream" uid="uid://cmjjcpki5basl" path="res://assets/audio/click4.ogg" id="6_8ugx5"]
+[ext_resource type="AudioStream" uid="uid://dyf3v3bvhtxtu" path="res://assets/audio/click5.ogg" id="7_yducw"]
+
+[node name="SondButton" type="Button"]
+offset_right = 6.0
+offset_bottom = 6.0
+text = "sond button
+"
+script = ExtResource("1_q4d88")
+
+[node name="RandomStremPlayerComponent" parent="." instance=ExtResource("2_82oy4")]
+streams = Array[AudioStream]([ExtResource("3_pp0j1"), ExtResource("4_1txll"), ExtResource("5_ou6f5"), ExtResource("6_8ugx5"), ExtResource("7_yducw")])

@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceuw3h05w8wyo"]
+
+[ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_753yh"]
+[ext_resource type="PackedScene" uid="uid://dkdwieupyo4wi" path="res://scenes/ui/sond_button.tscn" id="2_8ylqq"]
+[ext_resource type="AudioStream" uid="uid://de8685bqam1si" path="res://assets/audio/jingles_HIT01.ogg" id="2_u7uvg"]
+[ext_resource type="AudioStream" uid="uid://bfx67m8htgdh4" path="res://assets/audio/jingles_HIT15.ogg" id="3_vkcqa"]
+
+[sub_resource type="Animation" id="Animation_pshnm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vayma"]
+resource_name = "in"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_670yw"]
+resource_name = "out"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwnhc"]
+_data = {
+"RESET": SubResource("Animation_pshnm"),
+"in": SubResource("Animation_vayma"),
+"out": SubResource("Animation_670yw")
+}
+
+[node name="VictoryScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_753yh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mwnhc")
+}
+autoplay = "in"
+
+[node name="VictoryStremPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u7uvg")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="DefeatStremPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vkcqa")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.364706)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_font_sizes/font_size = 24
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DscriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "You Won!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_8ylqq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_8ylqq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://v0c66cvsjpvf"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_w87ji"]
+
+[resource]
+script = ExtResource("1_w87ji")
+id = "experience_game"
+max_quantity = 1
+title = "Increase Experience"
+description = "Increases experience drop  chance by 10%"
