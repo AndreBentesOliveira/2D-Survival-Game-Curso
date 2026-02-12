@@ -43,7 +43,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1.68179, 1),
+"transitions": PackedFloat32Array(2.07053, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -68,7 +68,7 @@ tracks/2/path = NodePath("ColorRect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.02),
+"times": PackedFloat32Array(0, 0.01),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]

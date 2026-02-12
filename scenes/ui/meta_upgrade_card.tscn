@@ -115,6 +115,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [node name="MetaUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
 custom_minimum_size = Vector2(170, 0)
 pivot_offset = Vector2(75, 75)
+mouse_filter = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("1_aapsb")
 
@@ -136,7 +137,7 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 9
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -156,7 +157,7 @@ autowrap_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
-text = "Write description here"
+text = "Write description here aaaaaaa"
 autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -164,7 +165,8 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = -1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_type_variation = &"BlueOutlineLabel"
@@ -176,6 +178,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_sp1vb")
 value = 23.56

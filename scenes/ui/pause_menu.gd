@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var panel_container: PanelContainer = $MarginContainer/PanelContainer
 @onready var options_menu_scene = preload("res://scenes/ui/options_menu.tscn")
 
-
 var is_closing : bool = false
 
 func _ready() -> void:
@@ -24,7 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		close()
 		get_tree().root.set_input_as_handled()
-		
+
+
 func close():
 	if is_closing:
 		return
@@ -42,6 +42,7 @@ func close():
 func on_resumebutton_pressed():
 	close()
 
+
 func on_optionsbutton_pressed():
 	ScreenTransition.transition_in()
 	await ScreenTransition.transitioned_halfway
@@ -51,6 +52,8 @@ func on_optionsbutton_pressed():
 
 
 func on_quitbutton_pressed():
+	ScreenTransition.transition_in()
+	await ScreenTransition.transitioned_halfway
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 

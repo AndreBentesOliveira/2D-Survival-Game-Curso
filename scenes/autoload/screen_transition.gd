@@ -1,18 +1,11 @@
 extends CanvasLayer
-
+ 
 signal transitioned_halfway
-
+ 
 var skip_emit = false
-
+ 
 func transition_in():
 	$AnimationPlayer.play("default")
-	await transitioned_halfway
-	skip_emit = true
-	$AnimationPlayer.play_backwards("default")
-
-
-func emit_transitioned_halfway():
-	if skip_emit:
-		skip_emit = false
-		return
+	await $AnimationPlayer.animation_finished
 	transitioned_halfway.emit()
+	$AnimationPlayer.play_backwards("default")
