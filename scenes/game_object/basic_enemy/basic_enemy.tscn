@@ -105,7 +105,7 @@ autoplay = "walk"
 [node name="HealthComponent" parent="." instance=ExtResource("2_2agkn")]
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("3_364h7")]
-drop_percent = 1.0
+drop_percent = 0.35
 heath_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_8ju5c")]
@@ -121,7 +121,6 @@ sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HitRandomAutoPlayerComponent" parent="." instance=ExtResource("10_m63uv")]
 stream = ExtResource("13_ull42")
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("10_2vt3x"), ExtResource("12_tr3mj"), ExtResource("13_ull42"), ExtResource("14_ldytb"), ExtResource("15_0wa4v")])
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_f5onf")]

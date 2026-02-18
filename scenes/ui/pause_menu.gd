@@ -59,7 +59,5 @@ func on_quitbutton_pressed():
 
 
 func on_options_back_pressed(options_menu : Node):
-	ScreenTransition.transition_in()
-	await ScreenTransition.transitioned_halfway
 	options_menu.queue_free()
 	

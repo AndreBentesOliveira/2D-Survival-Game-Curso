@@ -13,6 +13,7 @@ func _ready() -> void:
 	GameEvents.experience_vial_collected.connect(on_experience_collected)
 	load_save_file()
 
+
 func load_save_file():
 	if !FileAccess.file_exists(SAVE_FILE_PATH):
 		return
@@ -35,5 +36,9 @@ func add_meta_upgrade(upgrade: MetaUpgrade):
 	save()
 
 
+func get_upgrade_count(upgrade_id: String):
+	if save_data["meta_upgrades"].has(upgrade_id):
+		return save_data["meta_upgrades"][upgrade_id]["quantity"]
+	return 0
 func on_experience_collected(number : float):
 	save_data["meta_upgrade_currency"] += number

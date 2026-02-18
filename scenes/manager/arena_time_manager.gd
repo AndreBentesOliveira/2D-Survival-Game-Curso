@@ -2,7 +2,7 @@ extends Node
 
 signal arena_difficulty_increased(arena_difficulty: int)
 
-const DIFFICULT_INTERVAL = 5
+const DIFFICULT_INTERVAL = 3
 	
 @export var end_screen_scene: PackedScene
 

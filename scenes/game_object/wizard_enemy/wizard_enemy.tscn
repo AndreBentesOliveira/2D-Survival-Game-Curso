@@ -137,13 +137,13 @@ collision_mask = 9
 script = ExtResource("1_v4afy")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_cqcjk")]
+max_health = 20.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_irlm0")]
 max_speed = 60
 acceleration = 10.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("heath_component") instance=ExtResource("7_kccsm")]
-drop_percent = 0.35
 heath_component = NodePath("../HealthComponent")
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_hpqcl")]
@@ -157,7 +157,6 @@ sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HitRandomAutoPlayerComponent" parent="." instance=ExtResource("8_ht010")]
 stream = ExtResource("9_v836q")
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("10_3od2f"), ExtResource("11_qqawy"), ExtResource("9_v836q"), ExtResource("12_uobb0"), ExtResource("13_2gr3g")])
 
 [node name="Visuals" type="Node2D" parent="."]
