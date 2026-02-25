@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://sgauqew03ksp"]
+
+[ext_resource type="PackedScene" uid="uid://cyjosn2na4gts" path="res://scenes/abillity/anvil_ability_controller/AnvilAbilityController.tscn" id="1_00jb4"]
+[ext_resource type="Script" path="res://resources/upgrades/abillity.gd" id="2_c12ns"]
+
+[resource]
+script = ExtResource("2_c12ns")
+ability_controll_scene = ExtResource("1_00jb4")
+id = "anvil"
+max_quantity = 1
+name = "Anvil"
+description = "Drops Anvils randomly on enemies."

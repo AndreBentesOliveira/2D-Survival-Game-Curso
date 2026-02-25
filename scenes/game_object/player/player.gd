@@ -17,10 +17,12 @@ var base_speed = 0
 
 func _ready():
 	base_speed =  velocity_component.max_speed
+	$HealthRegenInterval.timeout.connect(on_healthregeninterval_timeout)
 	$CollisionAread2D.body_entered.connect(on_body_entered)
 	$CollisionAread2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
-	health_component.health_changed.connect(on_health_changed)
+	health_component.health_decreased.connect(on_health_decreased)
+	health_component.health_increased.connect(on_health_increased)
 	GameEvents.ability_upgrades_added.connect(on_ability_upgrade_added)
 	update_health_display()
 
@@ -57,6 +59,7 @@ func check_deal_damage():
 func update_health_display():
 	health_bar.value = health_component.get_health_percent()
 
+
 func on_body_entered(other_body: Node2D):
 	number_colliding_bodies += 1
 	check_deal_damage()
@@ -69,10 +72,14 @@ func on_damage_interval_timer_timeout():
 	check_deal_damage()
 
 
-func on_health_changed():
+func on_health_decreased():
 	GameEvents.emit_player_damaged()
 	update_health_display()
 	$HitRandomStreamPlayer2DComponent.play_random()
+
+
+func on_health_increased():
+	update_health_display()
 
 
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -81,3 +88,9 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		abillities.add_child(ability.ability_controll_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .1)
+
+
+func on_healthregeninterval_timeout():
+	var health_regen_quantity = MetaProgression.get_upgrade_count("health_regeneration")
+	if health_regen_quantity > 0:
+		health_component.heal(health_regen_quantity)
