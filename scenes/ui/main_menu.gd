@@ -21,6 +21,7 @@ func on_upgradesbutton_pressed():
 	await ScreenTransition.transitioned_halfway
 	get_tree().change_scene_to_file("res://scenes/ui/meta_menu.tscn")
 
+
 func on_optionsbutton_pressed():
 	ScreenTransition.transition_in()
 	await ScreenTransition.transitioned_halfway

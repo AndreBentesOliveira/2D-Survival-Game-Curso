@@ -13,10 +13,6 @@ func _ready():
 	$Timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrades_added.connect(on_ability_upgrade_added)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player") as Node2D

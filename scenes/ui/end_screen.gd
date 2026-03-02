@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var panel_container = $%PanelContainer
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)

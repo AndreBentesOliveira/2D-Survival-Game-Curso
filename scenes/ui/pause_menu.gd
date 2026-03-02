@@ -6,6 +6,7 @@ extends CanvasLayer
 var is_closing : bool = false
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 	panel_container.pivot_offset = panel_container.size / 2
 	%ResumeButton.pressed.connect(on_resumebutton_pressed)
@@ -40,6 +41,7 @@ func close():
 
 
 func on_resumebutton_pressed():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	close()
 
 

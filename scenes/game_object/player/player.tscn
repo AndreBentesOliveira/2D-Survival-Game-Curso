@@ -126,11 +126,11 @@ acceleration = 25.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_wvbh4")
+max_health = 15.0
 
 [node name="Abillities" type="Node" parent="."]
 
 [node name="SwordAbillityController" parent="Abillities" instance=ExtResource("2_8qbyn")]
-editor_description = "											"
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

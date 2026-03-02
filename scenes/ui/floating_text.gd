@@ -5,7 +5,8 @@ func _ready() -> void:
 	pass
 
 
-func start(text: String):
+func start(text: String, text_color : Color = Color.WHITE):
+	$Label.add_theme_color_override("font_color", text_color)
 	$Label.text = text
 	
 	scale = Vector2.ZERO

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmrmko72mmp0"]
+
+[ext_resource type="Script" path="res://scenes/abillity/spear_ability_controller/spear_abillity_controller.gd" id="1_i4mde"]
+[ext_resource type="PackedScene" uid="uid://ddntyxrv580fb" path="res://scenes/abillity/spear_ability/spear_ability.tscn" id="2_3o4sc"]
+
+[node name="SpearAbillityController" type="Node"]
+script = ExtResource("1_i4mde")
+spear_abillity = ExtResource("2_3o4sc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

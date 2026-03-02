@@ -7,6 +7,7 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 @onready var card_container: HBoxContainer = $%CardContainer
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 
 
@@ -25,4 +26,5 @@ func on_upgrade_selected(upgrade: AbilityUpgrade):
 	$AnimationPlayer.play("out")
 	await  $AnimationPlayer.animation_finished
 	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	queue_free()

@@ -22,6 +22,7 @@ func heal(heal_amount):
 	health_increased.emit()
 	print("heal: " + str(heal_amount) + "health: " + str(current_health))
 
+
 func get_health_percent():
 	if max_health <= 0:
 		return 0

@@ -3,8 +3,12 @@ extends Node
 @export var end_screen_scene: PackedScene
 
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
+var hand_cursor = load("res://assets/tile_0134.png")
+
 
 func _ready():
+	Input.set_custom_mouse_cursor(hand_cursor, Input.CURSOR_POINTING_HAND, Vector2(0, 0))
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$%Player.health_component.died.connect(on_player_died)
 
 
