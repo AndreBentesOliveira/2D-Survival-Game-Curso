@@ -3,6 +3,9 @@ extends CanvasLayer
 @export var arena_time_manager: Node
 @onready var label = $%Label
 
+var minutes
+var remaining_seconds
+
 func _process(delta):
 	if arena_time_manager == null:
 		return
@@ -11,6 +14,6 @@ func _process(delta):
 
 
 func format_seconds(seconds):
-	var minutes = floor(seconds / 60)
-	var remaining_seconds = seconds - (minutes * 60)
+	minutes = floor(seconds / 60)
+	remaining_seconds = seconds - (minutes * 60)
 	return str(minutes) + ":" + ("%02d" % floor(remaining_seconds))

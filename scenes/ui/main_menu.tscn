@@ -66,3 +66,85 @@ text = "Options"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/PanelContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="TitleLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_font_sizes/font_size = 24
+text = "Record"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxLevelHContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Max Level: "
+
+[node name="MaxLevelLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"
+
+[node name="MaxKillsHContainer2" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Enemys Defeat: "
+
+[node name="MaxKillLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"
+
+[node name="MaxTimeHContainer3" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Max Level: "
+
+[node name="MaxTimeLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"

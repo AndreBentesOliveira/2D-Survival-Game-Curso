@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceuw3h05w8wyo"]
+[gd_scene load_steps=11 format=3 uid="uid://ceuw3h05w8wyo"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_753yh"]
 [ext_resource type="PackedScene" uid="uid://dkdwieupyo4wi" path="res://scenes/ui/sond_button.tscn" id="2_8ylqq"]
 [ext_resource type="AudioStream" uid="uid://de8685bqam1si" path="res://assets/audio/jingles_HIT01.ogg" id="2_u7uvg"]
 [ext_resource type="AudioStream" uid="uid://bfx67m8htgdh4" path="res://assets/audio/jingles_HIT15.ogg" id="3_vkcqa"]
+[ext_resource type="Shader" path="res://scenes/ui/rainbowm.gdshader" id="4_x3535"]
 
 [sub_resource type="Animation" id="Animation_pshnm"]
 length = 0.001
@@ -61,6 +62,12 @@ _data = {
 "out": SubResource("Animation_670yw")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bf570"]
+shader = ExtResource("4_x3535")
+shader_parameter/strength = 0.5
+shader_parameter/speed = 0.5
+shader_parameter/angle = 0.0
+
 [node name="VictoryScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_753yh")
@@ -112,7 +119,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 9
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -128,6 +135,69 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 text = "You Won!"
+
+[node name="MaxLevelHContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Max Level: "
+
+[node name="MaxLevelLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"
+
+[node name="LevelRecordLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer"]
+material = SubResource("ShaderMaterial_bf570")
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_constants/outline_size = 5
+text = "New Record"
+
+[node name="MaxKillsHContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Enemys Defeat: "
+
+[node name="MaxKillLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"
+
+[node name="KillRecordLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2"]
+material = SubResource("ShaderMaterial_bf570")
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_constants/outline_size = 5
+text = "New Record"
+
+[node name="MaxTimeHContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Max Level: "
+
+[node name="MaxTimeLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "10"
+
+[node name="TimeRecordLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3"]
+material = SubResource("ShaderMaterial_bf570")
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_constants/outline_size = 5
+text = "New Record"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

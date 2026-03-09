@@ -2,7 +2,17 @@ extends CanvasLayer
 
 @onready var panel_container = $%PanelContainer
 
+@onready var level_record_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxLevelHContainer/LevelRecordLabel
+@onready var kill_record_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxKillsHContainer2/KillRecordLabel
+@onready var time_record_label: Label = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MaxTimeHContainer3/TimeRecordLabel
+
+
+
+
 func _ready():
+	level_record_label.hide()
+	kill_record_label.hide()
+	time_record_label.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
@@ -17,6 +27,9 @@ func _ready():
 func set_defeat():
 	$%TitleLabel.text = "Defeat"
 	$%DscriptionLabel.text = "You Lost"
+	%MaxLevelLabel.text = str(GameEvents.current_player_level)
+	%MaxKillLabel.text = str(GameEvents.enemys_killed)
+	
 	play_jingle(true)
 
 

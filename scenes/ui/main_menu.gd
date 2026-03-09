@@ -8,6 +8,16 @@ func _ready() -> void:
 	$%UpgradesButton.pressed.connect(on_upgradesbutton_pressed)
 	$%OptionsButton.pressed.connect(on_optionsbutton_pressed)
 	$%QuitButton.pressed.connect(on_quitbutton_pressed)
+	
+	%MaxLevelLabel.text = str(MetaProgression.save_data["level"])
+	%MaxKillLabel.text = str(MetaProgression.save_data["enemys_kill"])
+	%MaxTimeLabel.text = str(format_seconds(MetaProgression.save_data["time"]))
+
+
+func format_seconds(seconds):
+	var minutes = floor(seconds / 60)
+	var remaining_seconds = seconds - (minutes * 60)
+	return str(minutes) + ":" + ("%02d" % floor(remaining_seconds))
 
 
 func on_playbutton_pressed():
